@@ -1,8 +1,8 @@
 from telethon import events
 from .. import jdbot,chat_id,_ConfigDir
 _config = _ConfigDir + '/config.sh'
-#自动替换/增加Cookies
-#https://github.com/hysbeta/jddockerbot/jbot/diy/updateCookies.py
+#为bot增加更新/添加Cookies功能
+#https://github.com/hysbeta/jddockerbot/blob/master/jbot/diy/updateCookies.py
 #用法：
 #1.部署updateCookies.py到diy文件夹下
 #2.从其他途径或SuMaiKaDe/jddockerbot的bot处获取Cookies
