@@ -1,0 +1,28 @@
+name: jddockerbot-sync
+on:
+  schedule:
+    - cron: '4 5,12,18 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync-hysbeta-JavaScript
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} 
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: sync hysbeta-JavaScript
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/hysbeta/jddockerbot.git"
+          source_branch: "master"
+          destination_branch: "hysbeta-jddockerbot"
+          github_token: ${{ secrets.PAT }}
