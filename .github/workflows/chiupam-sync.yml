@@ -23,6 +23,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/chiupam/JD_diy.git"
-          source_branch: "main"
+          source_branch: "master"
           destination_branch: "chiupam-JD_diy"
           github_token: ${{ secrets.PAT }}
