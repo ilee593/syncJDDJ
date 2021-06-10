@@ -1,0 +1,28 @@
+name: RikudouPatrickstar-sync
+on:
+  schedule:
+    - cron: '9 9 10 6 *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync-RikudouPatrickstar-JavaScript
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} 
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: sync RikudouPatrickstar-JavaScript
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/RikudouPatrickstar/jd_scripts.git"
+          source_branch: "a38137a7defd1a41a5f5438ef8fe0d5becff1982"
+          destination_branch: "RikudouPatrickstar-scripts"
+          github_token: ${{ secrets.PAT }}
