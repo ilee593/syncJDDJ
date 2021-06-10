@@ -1,12 +1,12 @@
-name: RikudouPatrickstar-sync
+name: chinnkarahoi-sync
 on:
   schedule:
-    - cron: '9 9 10 6 *'
+    - cron: '9 0-23/3 * * *'
   workflow_dispatch:
   watch:
     types: started
   repository_dispatch:
-    types: sync-RikudouPatrickstar-JavaScript
+    types: sync-chinnkarahoi-JavaScript
 jobs:
   repo-sync:
     env:
@@ -18,11 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync RikudouPatrickstar-JavaScript
+      - name: sync chinnkarahoi-JavaScript
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/RikudouPatrickstar/jd_scripts.git"
-          source_branch: "a38137a7defd1a41a5f5438ef8fe0d5becff1982"
-          destination_branch: "RikudouPatrickstar-scripts"
+          source_repo: "https://github.com/chinnkarahoi/jd_scripts.git"
+          source_branch: "master"
+          destination_branch: "chinnkarahoi-scripts"
           github_token: ${{ secrets.PAT }}
