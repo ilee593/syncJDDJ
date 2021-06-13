@@ -23,6 +23,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/SuMaiKaDe/bot.git"
-          source_branch: "maim"
+          source_branch: "main"
           destination_branch: "SuMaiKaDe-scripts"
           github_token: ${{ secrets.PAT }}
