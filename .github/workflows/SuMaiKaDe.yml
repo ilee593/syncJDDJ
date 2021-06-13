@@ -24,5 +24,5 @@ jobs:
         with:
           source_repo: "https://github.com/SuMaiKaDe/bot.git"
           source_branch: "maim"
-          destination_branch: "SuMaiKaDe-bot"
+          destination_branch: "SuMaiKaDe-scripts"
           github_token: ${{ secrets.PAT }}
