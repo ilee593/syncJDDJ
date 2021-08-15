@@ -22,7 +22,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/cdle/jd_study.git"
+          source_repo: "https://github.com/cdle/xdd.git"
           source_branch: "main"
           destination_branch: "cdle-scripts"
           github_token: ${{ secrets.PAT }}
