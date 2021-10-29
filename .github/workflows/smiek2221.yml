@@ -1,7 +1,7 @@
 name: smiek2221-sync
 on:
   schedule:
-    - cron: '21 0-23/4 * * *'
+    - cron: '21 0-23/4 * 8 *'
   workflow_dispatch:
   watch:
     types: started
