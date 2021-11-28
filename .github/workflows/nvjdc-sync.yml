@@ -1,12 +1,12 @@
-name: NolanHzy/nvjdc-sync
+name: NolanHzy/nvjdcdocker
 on:
   schedule:
-    - cron: '14 */3 * 8 *'
+    - cron: '14 */3 * * *'
   workflow_dispatch:
   watch:
     types: started
   repository_dispatch:
-    types: sync-NolanHzy/nvjdc
+    types: sync-NolanHzy/nvjdcdocker
 jobs:
   repo-sync:
     env:
@@ -18,11 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync NolanHzy/nvjdc
+      - name: sync NolanHzy/nvjdcdocker
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/NolanHzy/nvjdc.git"
+          source_repo: "https://github.com/NolanHzy/nvjdcdocker.git"
           source_branch: "main"
-          destination_branch: "NolanHzy/nvjdc"
+          destination_branch: "NolanHzy/nvjdcdocker"
           github_token: ${{ secrets.PAT }}
