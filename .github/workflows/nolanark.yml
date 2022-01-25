@@ -1,0 +1,28 @@
+name: NNNNolan-Ark-sync
+on:
+  schedule:
+    - cron: '12 0,14 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync-NNNNolan-Ark-JavaScript
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} 
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: sync NNNNolan-Ark-JavaScript
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/NNNNolan/Ark.git"
+          source_branch: "main"
+          destination_branch: "NNNNolan-Ark"
+          github_token: ${{ secrets.PAT }}
