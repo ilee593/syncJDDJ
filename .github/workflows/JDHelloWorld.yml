@@ -1,7 +1,7 @@
 name: JDHelloWorld-sync
 on:
   schedule:
-    - cron: '36 0-23/4 * * *'
+    #- cron: '36 0-23/4 * * *'
   workflow_dispatch:
   watch:
     types: started
